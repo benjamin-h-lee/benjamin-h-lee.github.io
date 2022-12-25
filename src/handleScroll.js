@@ -15,7 +15,6 @@ const handleScroll = () => {
     // --> in view
     // || true --> don't fade out when element passed
     if((rect.bottom > FADE_BOUNDARY || true) && rect.top < window.innerHeight - FADE_BOUNDARY) {
-        //console.log("rect.top: " + rect.top + "\nrect.bottom: " + rect.bottom + "\nFADE_BOUNDARY: " + FADE_BOUNDARY + "\nwindow.innerHeight: " + window.innerHeight);
         el.style.opacity = 1;
     } else {
         let opac = rect.top < FADE_BOUNDARY ?

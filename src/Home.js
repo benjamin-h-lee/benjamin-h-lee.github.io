@@ -4,11 +4,6 @@ import InfoRow from './InfoRow';
 import files_data from './images/FilesData.js'
 
 
-console.log(files_data);
-
-files_data.about().then(text => console.log(text))
-
-
 
 const profile = require("./profile.png");
 

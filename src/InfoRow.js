@@ -19,7 +19,6 @@ const InfoRow = (props) => {
                 <br></br>
                 <h1>{props.header}</h1>
                 <br></br>
-                {/*console.log(props.contents)*/}
                 {props.contents.map( (txt, index) => {
                     return (
                     <p className='fader' key={index}>
