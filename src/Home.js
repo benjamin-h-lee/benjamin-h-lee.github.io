@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import NavigationBar from './NavigationBar';
 import InfoRow from './InfoRow';
-import files_data from './images/FilesData.js'
 
 
 

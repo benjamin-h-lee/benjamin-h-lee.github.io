@@ -65,6 +65,17 @@ files_data["Fencing"] = [
 
 // **** FOLLOWING ATTRIBUTES ARE INDEPENDENT OF EXISTING FILES *****
 
+const copy_images = (arr) => {
+    const new_arr = [];
+    for (let i = 0; i < arr.length; i++) {
+        let el = arr[i];
+        if (el.indexOf(".txt") === -1 && el.indexOf(".md") === -1) {
+            new_arr.push(el);
+        }
+    }
+    return new_arr;
+}
+
 
 files_data.get_captions = async (folder) => {
     for (let i = 0; i < files_data[folder].length; i++) {
@@ -90,17 +101,21 @@ files_data.get_captions = async (folder) => {
     }
     return undefined;
 }
-files_data.get_images = (folder) => {
-    return copy_images(files_data[folder]).map( (file) => {
-        return require("./" + folder + "/" + file);
-    });
-}
 
 files_data.headers = files_data.interestProfileImgs.map(
         (file_name) => {
             return file_name.substring(0, file_name.indexOf("."));
         }
     );
+
+// load images
+files_data.images = {};
+for (let i = 0; i < files_data.headers.length; i++) {
+    let header = files_data.headers[i];
+    files_data.images[header] = copy_images(files_data[header]).map( (file) => {
+        return require("./" + header + "/" + file);
+    });
+}
 
 files_data.about = async () => {
     let about_file = require("./" + files_data.about_file);
@@ -115,17 +130,6 @@ files_data.about = async () => {
                    }
                    return obj;
                })
-}
-
-const copy_images = (arr) => {
-    const new_arr = [];
-    for (let i = 0; i < arr.length; i++) {
-        let el = arr[i];
-        if (el.indexOf(".txt") === -1 && el.indexOf(".md") === -1) {
-            new_arr.push(el);
-        }
-    }
-    return new_arr;
 }
 
 export default files_data;

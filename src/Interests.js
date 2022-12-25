@@ -66,7 +66,7 @@ const Interests = (props) => {
                             {lg:3, md:2, xs:1};
     
         const getImgDisplayContents = () => {
-            return files_data.get_images(selected).map( (image, index) => {
+            return files_data.images[selected].map( (image, index) => {
                 const noCaption = !captionsFound || 
                                 captions[index] === undefined;
                 // alternate between right and left, but always
@@ -90,7 +90,7 @@ const Interests = (props) => {
                                     <MyCarousel 
                                         activeIndex={index}
                                         slides={
-                                            files_data.get_images(selected).map( (image) => {
+                                            files_data.images[selected].map( (image) => {
                                                 return (
                                                     <div className='carouselView'>
                                                         <img src={image} alt=""></img>
